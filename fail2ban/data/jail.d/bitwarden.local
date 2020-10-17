@@ -1,0 +1,8 @@
+[bitwarden]
+enabled = true
+port = http,https
+filter = bitwarden
+logpath = /var/log/bitwarden.log
+maxretry = 5
+bantime = 3600
+findtime = 3600

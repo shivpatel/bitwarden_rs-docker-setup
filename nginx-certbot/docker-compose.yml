@@ -1,0 +1,18 @@
+version: '2'
+services:
+  nginx:
+    build: .
+    restart: always
+    networks:
+      - default
+      - bitwarden_int-network
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /path/to/static/website:/path/to/static/website # Optional
+      - ./etc/letsencrypt:/etc/letsencrypt
+      - ./default.conf:/etc/nginx/sites-available/default
+networks:
+  bitwarden_int-network:
+    external: true

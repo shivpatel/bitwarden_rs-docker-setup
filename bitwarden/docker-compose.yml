@@ -1,0 +1,16 @@
+version: '3.1'
+services:
+  bitwarden:
+    image: bitwardenrs/server:latest
+    restart: always
+    volumes:
+      - /path/to/bitwarden/data:/data/
+      - /path/to/bitwarden/bitwarden.log:/data/bitwarden.log
+    env_file: .env
+    expose:
+      - 80
+    networks:
+      - int-network
+networks:
+  int-network:
+    driver: bridge
